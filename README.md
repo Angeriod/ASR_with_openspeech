@@ -21,7 +21,7 @@ From January to mid-February, based on the loss criteria from [openspeech Criter
 
 ## Preprocessing
 
-- The tokenizer from ksponspeech was customized to work with our dataset, using character-level encoding. The vehicle command dataset was split into training, validation, and testing sets with 200,000, 20,000, and 20,000 entries, respectively. Each entry required waveform location and corresponding transcription, processed into a txt file format like `waveform{\t}transcription` for manifest file generation.
+- The tokenizer from ksponspeech was customized to work with our dataset, using character-level encoding. The vehicle command dataset was split into training, validation, and testing sets with 200,000, 20,000, and 20,000 entries, respectively. Each entry required waveform location and corresponding transcription, processed into a txt file format like `waveform{\t}transcription` for manifest file generation. Details in `sampling.py`
 - The dataset encompassed four distinct domains: `sec`, `h2c`, `c2h`, and `self`, each representing a unique area of vehicle commands. To ensure a balanced representation from each domain, we employed a random sampling in each domain strategy to construct the training, validation, and test sets. 
 
 ## Training and Results
