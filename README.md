@@ -43,6 +43,12 @@ python3 ./openspeech_cli/hydra_train.py \
   trainer=gpu \
   criterion=cross_entropy
 ```
+### Conformer LSTM
+![conformer_reslut](https://github.com/Angeriod/ASR_with_openspeech/assets/97516571/f9b6426c-a8ba-4df3-b3fa-369728654432)
+
+### Attend and Spell with Multi-Head
+![las_reslut](https://github.com/Angeriod/ASR_with_openspeech/assets/97516571/c06c4cd7-45bc-46e8-aaa0-0a41ec26da0b)
+
 ## Evaluation and Results
 
 A comprehensive evaluation was conducted on a test set comprising 20,000 entries to gauge the performance of the trained models.
