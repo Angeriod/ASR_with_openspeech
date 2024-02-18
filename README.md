@@ -32,7 +32,7 @@ Models used include Conformer LSTM and Listen trained on double NVIDIA RTX 3090 
 
 ```shell
 python3 ./openspeech_cli/hydra_train.py \
-  dataset=ksponspeech \
+  dataset=ksponspeech \ 
   dataset.dataset_path=/home/user/PycharmProjects/model3/openspeech/in_car_command/ \
   dataset.manifest_file_path=/home/user/PycharmProjects/model3/openspeech/in_car_command/in_car_command_manifest.txt \
   tokenizer=kspon_character \
@@ -43,6 +43,7 @@ python3 ./openspeech_cli/hydra_train.py \
   trainer=gpu \
   criterion=cross_entropy
 ```
+"I have made internal modifications to the KSponspeech dataset codes for use in this project, therefore, while the name remains the same, the contents may have been altered to fit specific requirements."
 ### Conformer LSTM
 ![conformer_reslut](https://github.com/Angeriod/ASR_with_openspeech/assets/97516571/f9b6426c-a8ba-4df3-b3fa-369728654432)
 
@@ -62,12 +63,12 @@ The evaluation was executed using the following command, tailored to assess the 
 python3 ./openspeech_cli/hydra_eval.py \
   audio=melspectrogram \
   eval.dataset_path=/home/user/PycharmProjects/BH_flask/model3/openspeech/in_car_command/ \
-  eval.checkpoint_path=/home/user/PycharmProjects/BH_flask/model3/openspeech/completed_model/conformer_lstm_in_car_command/57_360000.ckpt \
-  eval.manifest_file_path=/home/user/PycharmProjects/BH_flask/model3/openspeech/in_car_command/in_car_command_test_manifest.txt \
-  eval.result_path=/home/user/PycharmProjects/BH_flask/model3/openspeech/in_car_command/conformer_lstm_test_result_57epoch_beam4.txt \
+  eval.checkpoint_path=/home/user/PycharmProjects/model3/openspeech/completed_model/conformer_lstm_in_car_command/57_360000.ckpt \
+  eval.manifest_file_path=/home/user/PycharmProjects/model3/openspeech/in_car_command/in_car_command_test_manifest.txt \
+  eval.result_path=/home/user/PycharmProjects/model3/openspeech/in_car_command/conformer_lstm_test_result_57epoch_beam4.txt \
   model=conformer_lstm \
   tokenizer=kspon_character \
-  tokenizer.vocab_path=/home/user/PycharmProjects/BH_flask/model3/openspeech/in_car_command/in_command_car.csv
+  tokenizer.vocab_path=/home/user/PycharmProjects/model3/openspeech/in_car_command/in_command_car.csv
 ```
 ## Performance Metrics
 
