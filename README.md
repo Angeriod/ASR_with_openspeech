@@ -22,11 +22,11 @@ From January to mid-February, based on the loss criteria from [openspeech Criter
 ## Preprocessing
 
 - The tokenizer from ksponspeech was customized to work with our dataset, using character-level encoding. The vehicle command dataset was split into training, validation, and testing sets with 200,000, 20,000, and 20,000 entries, respectively. Each entry required waveform location and corresponding transcription, processed into a txt file format like `waveform{\t}transcription` for manifest file generation.
-- The dataset encompassed four distinct domains: `sec`, `h2c`, `c2h`, and `self`, each representing a unique area of vehicle commands. To ensure a balanced representation from each domain, we employed a random sampling strategy to construct the training, validation, and test sets. 
+- The dataset encompassed four distinct domains: `sec`, `h2c`, `c2h`, and `self`, each representing a unique area of vehicle commands. To ensure a balanced representation from each domain, we employed a random sampling in each domain strategy to construct the training, validation, and test sets. 
 
 ## Training and Results
 
-Models used include Conformer LSTM and Listen, Attend and Spell with Multi-Head, trained on NVIDIA RTX 3090 GPUs.
+Models used include Conformer LSTM and Listen trained on double NVIDIA RTX 3090 GPUs with `torchlightning 'ddp'` ., Attend and Spell with Multi-Head with trained on single NVIDIA RTX 3090 GPUs , 
 
 ### Training Command for Conformer LSTM
 
@@ -85,12 +85,12 @@ The models demonstrated varying levels of accuracy, with the results detailed be
 
 **Successful Prediction**:
 
-- **Input**: "최근 통화 목록에서 김민수 찾아서 연결해 줘."
+- **label**: "최근 통화 목록에서 김민수 찾아서 연결해 줘."
 - **Prediction**: "최근 통화 목록에서 김민수 찾아서 연결해 줘."
 
 **Unsuccessful Prediction**:
 
-- **Input**: "차선 좌로 한 칸 옮겨서 운전해."
+- **label**: "차선 좌로 한 칸 옮겨서 운전해."
 - **Prediction**: "차선 지금처럼 다음 일도 낮게 설정해."
 
 ## Conclusion and Reflections
